@@ -18,5 +18,5 @@ Following table shows the download links of ConvSearch dataset:
 
 | Version | Release time | Main part | Full data |
 | ------- | --------- | --------- | --------- |
-| 1.1 | 2022/02/28 | [ConvSearch--v1.1-Main.zip](http://ir.cs.tsinghua.edu.cn/ConvSearch-publish/v1.1//ConvSearch-v1.1-Main.zip) (4.3MB) | [ConvSearch--v1.1-Full.zip](http://ir.cs.tsinghua.edu.cn/ConvSearch-publish/v1.1//ConvSearch-v1.1-Full.zip) (1.5GB) |
+| 1.1 | 2022/02/28 | [ConvSearch-v1.1-Main.zip](https://drive.google.com/file/d/1Bhgwrm12Msx9XBs--9zpCXxJ4n-MM1QJ/view?usp=sharing) (4.3MB) | [ConvSearch-v1.1-Full.zip](https://drive.google.com/file/d/1YUEXF67UBHDWOvHqRNhZfU0Q4mRQKX45/view?usp=sharing) (1.5GB) |
 
