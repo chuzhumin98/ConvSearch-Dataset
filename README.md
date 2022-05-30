@@ -1,5 +1,5 @@
 # ConvSearch Dataset
-This repository is the home of the  **C**hinese **O**pen-Domai**n** Con**v**ersational **Search** Behavior Dataset (ConvSearch). You can refer to paper [ConvSearch: A Open-Domain Conversational Search Behavior Dataset](https://arxiv.org/pdf/2204.02659.pdf) for more details on dataset construction and analysis.
+This repository is the homepage of the  **C**hinese **O**pen-Domai**n** Con**v**ersational **Search** Behavior Dataset (ConvSearch). You can refer to paper [ConvSearch: A Open-Domain Conversational Search Behavior Dataset](https://arxiv.org/pdf/2204.02659.pdf) for more details on dataset construction and analysis.
 
 
 
@@ -36,7 +36,7 @@ Following table shows the basic statistics of ConvSearch dataset, where *\# tota
 | Average words per agent query                  | 10.37  |
 | Average agent landing pages per dialogue       |  8.78  |
 
-For a more detailed statistical analysis report of our ConvSearch dataset, you can view *Dataset_Statistical_Analysis.pdf*.
+For a more detailed statistical analysis report of our ConvSearch dataset, you can view [*Dataset_Statistical_Analysis.pdf*](https://github.com/chuzhumin98/ConvSearch-Dataset/blob/main/Dataset_Statistical_Analysis.pdf).
 
 
 
@@ -199,4 +199,21 @@ Following show the sample content of SearchBehaviors.json:
 ```
 
 The original HTML files for SERPs and landing pages can be downloaded on the Supplementary part.
+
+
+
+## Citation
+
+```bib
+@Article{Chu2022,
+  author     = {Zhumin Chu, Zhihong Wang, Yiqun Liu, Yingye Huang, Min Zhang, Shaoping Ma},
+  title      = {ConvSearch: A Open-Domain Conversational Search Behavior Dataset},
+  year       = {2022},
+  eprint     = {2204.02659},
+  eprinttype = {arXiv},
+  url        = {https://arxiv.org/pdf/2204.02659.pdf},
+}
+```
+
+
 
