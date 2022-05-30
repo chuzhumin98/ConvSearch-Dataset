@@ -7,10 +7,10 @@ This repository is the home of the  **C**hinese **O**pen-Domai**n** Con**v**ersa
 
 Our dataset contains the following parts:
 
-- Dialogues (Main part): information of dialogue and corresponding turns, including content, timestamp, annotation results, et al.
-- Agent behaviors (Main part): the information seeking behaviors of agent before they respond to users, including query requests, SERPs with click action, landing pages.
-- The HTML files of SERPs (search engine result pages) and landing pages in agent search behavior (Supplementary part).
-- Image files in dialogues (Supplementary part).
+- Dialogues (Main part, **Dialogs.json**): information of dialogue and corresponding turns, including content, timestamp, annotation results, et al.
+- Agent behaviors (Main part, **SearchBehaviors.json**): the information seeking behaviors of agent before they respond to users, including query requests, SERPs with click action, landing pages.
+- The HTML files of SERPs (search engine result pages, **SERP-htmls.tar.gz**) and landing pages in agent search behavior (Supplementary part, **Landing-page-htmls.tar.gz**).
+- Image files in dialogues (Supplementary part, **Dialog-images.tar.gz**).
 
 
 
@@ -58,6 +58,58 @@ Following table shows the download links of ConvSearch dataset:
 
 
 
+### Sample of Dialogs.json 
+
+Following show the sample content of Dialogs.json:
+
+```json
+[{
+  "id": 130, 
+  "user": 14, 
+  "agent": 13, 
+  "start_time": 1637848232.193, 
+  "end_time": 1637849330.969, 
+  "topic_user": "food", 
+  "intent_user": "\u5bfb\u627e\u597d\u5403\u7684\u6c49\u5821", 
+  "satisfaction_user": 4, 
+  "effort_user": 3, 
+  "preference_user": 0, 
+  "applicability_user": 3, 
+  "improvement_user": "\u662f\u5426\u53ef\u4ee5\u7ed9\u51fa\u4e00\u4e9b\u5546\u54c1\u7684\u8bc4\u5206\u6216\u8005\u8bc4\u4ef7\u4fe1\u606f\uff0c\u65b9\u4fbf\u4f9d\u636e\u5bf9\u6bd4", 
+  "understand_agent": 4, 
+  "satisfaction_agent": 4, 
+  "difficulty_agent": 2, 
+  "keywords": "\u7f8e\u98df", 
+  "turns": [
+    {
+      "id": 1093, 
+     "content": "\u80af\u5fb7\u57fa\u548c\u9ea6\u5f53\u52b3\u7684\u6c49\u5821\u54ea\u5bb6 \uff1f", 
+     "initiator": "user", 
+     "time": 1637848232.193, 
+     "is_image": false, 
+     "image_name": "", 
+     "clarity-turn": 3, 
+     "difficulty-turn": 2, 
+     "intent-primary-class": ["reveal-initiate", "reveal-initiate", "reveal-initiate"], 
+     "intent-secondary-class": ["", "", ""]
+    }, 
+    {
+      "id": 1094, 
+     "content": "\u8bf7\u95ee\u4f60\u60f3\u95ee\u7684\u662f\u80af\u5fb7\u57fa\u548c\u9ea6\u5f53\u52b3\u6709\u4ec0\u4e48\u6c49\u5821\u5417\uff1f", 
+     "initiator": "agent", 
+     "time": 1637848282.757, 
+     "is_image": false, 
+     "image_name": "", 
+     "satisfaction-turn": 4, 
+     "understand-turn": 4, 
+     "action-primary-class": ["clarify", "clarify", "clarify"], 
+     "action-secondary-class": ["", "", ""]} ......
+```
+
+As a Chinese conversational search dataset, we have stored the conversational content using Unicode encoding to ensure that users can successfully decode the data in any environment. You can refer to the *annotation-rules* folder to see the annotation specifications for the corresponding segments.
+
+
+
 ## SearchBehaviors.json Format
 
 **SearchBehaviors.json** is provided as json format with an array of query requests. For each query request, following show its segments as well as their corresponding descriptions.
@@ -88,4 +140,45 @@ Following table shows the download links of ConvSearch dataset:
   - start_time: the timestamp when agent opens this landing page
   - end_time: the timestamp when agent closes this landing page
   - dwell_time:  the duration agent dwells on the this SERP (unit: millisecond)
+
+
+
+### Sample of SearchBehaviors.json 
+
+Following show the sample content of SearchBehaviors.json:
+
+```json
+[{
+  "id": 43, 
+  "query_string": "\u6c5f\u6d59\u83dc\u9986 \u5317\u4eac", 
+  "origin": "baidu", 
+  "time": 1635059303.845, 
+  "belong_dialog": 30, 
+  "belong_turn": 85, 
+  "serp_pagelogs": [
+    {
+      "id": 903, 
+      "url": "https://www.baidu.com/s?wd=%E6%B1%9F%E6%B5%99%E8%8F%9C%E9%A6%86%20%E5%8C%97%E4%BA%AC", 
+      "html_name": "serp-903.html", 
+      "start_time": 1635059303846, 
+      "end_time": 1635059517178, 
+      "dwell_time": 174366, 
+      "page_id": 1, 
+      "clicked_results": "[{\"href\":\"https://www.baidu.com/link?url=6JA9-A-UT3kmslX1Ba5uTZxQmqZxrmpfcvtRkcRj6Ol2-fijyaCtLqiZC8LJ48xm3z2ltG5BMAhTsKWpwZwAy0uAEvh763vXK-RbKoaoOVO&wd=&eqid=9d946fe1000470950000000361750668\",\"type\":\"content\",\"id\":2}]"
+    }
+  ], 
+  "landingpage_pagelogs": [
+    {"id": 901, 
+     "helpfulness-pagelog": 3, 
+     "url": "https://www.zhihu.com/question/21806636/answer/393008334", 
+     "html_name": "439.html", 
+     "start_time": 1635059315100, 
+     "end_time": 1635059515866, 
+     "dwell_time": 200766
+    }
+  ]
+}, ......
+```
+
+The original HTML files for SERPs and landing pages can be downloaded on the Supplementary part.
 
