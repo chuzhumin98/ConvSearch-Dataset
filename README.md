@@ -22,6 +22,24 @@ Following table shows the download links of ConvSearch dataset:
 
 
 
+## Basic statistics
+
+Following table shows the basic statistics of ConvSearch dataset, where *\# total turns* denotes the number of turns in the original dialogue data, while *\# merged turns* denotes the number of turns after we merge multiple consecutive responses of user or agent into a single turn.
+
+| Statistics                                     | Number |
+| ---------------------------------------------- | :----: |
+| \# Dialogues                                   | 1,131  |
+| Average total turns per dialogue               |  8.30  |
+| Average merged turns per dialogue              |  6.89  |
+| Average agent queries per dialogue             |  6.01  |
+| Average agent queries with clicks per dialogue |  3.68  |
+| Average words per agent query                  | 10.37  |
+| Average agent landing pages per dialogue       |  8.78  |
+
+For a more detailed statistical analysis report of our ConvSearch dataset, you can view *Dataset_Statistical_Analysis.pdf*.
+
+
+
 ## Dialogs.json Format
 
 **Dialogs.json** is provided as json format with an array of dialogues. For each dialogue, following show its segments as well as their corresponding descriptions.
@@ -106,7 +124,7 @@ Following show the sample content of Dialogs.json:
      "action-secondary-class": ["", "", ""]} ......
 ```
 
-As a Chinese conversational search dataset, we have stored the conversational content using Unicode encoding to ensure that users can successfully decode the data in any environment. You can refer to the *annotation-rules* folder to see the annotation specifications for the corresponding segments.
+As a Chinese conversational search dataset, we have stored the conversational content using Unicode encoding to ensure that users can successfully decode the data in any environment. You can refer to the [*annotation-rules*](https://github.com/chuzhumin98/ConvSearch-Dataset/tree/main/annotation-rules) folder to see the annotation specifications for the corresponding segments.
 
 
 
