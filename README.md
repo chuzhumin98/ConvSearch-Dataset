@@ -8,7 +8,7 @@ This repository is the homepage of the  **C**hinese **O**pen-Domai**n** Con**v**
 Our dataset contains the following parts:
 
 - Dialogues (Main part, **Dialogs.json**): information of dialogue and corresponding turns, including content, timestamp, annotation results, et al.
-- Agent behaviors (Main part, **SearchBehaviors.json**): the information seeking behaviors of agent before they respond to users, including query requests, SERPs with click action, landing pages.
+- Agent behaviors (Main part, **SearchBehaviors.json**): information of agents' search behaviors before responding to users, including query requests, SERPs with clicks  and links to/of langding pages.
 - The HTML files of SERPs (search engine result pages, **SERP-htmls.tar.gz**) and landing pages in agent search behavior (Supplementary part, **Landing-page-htmls.tar.gz**).
 - Image files in dialogues (Supplementary part, **Dialog-images.tar.gz**).
 
@@ -34,7 +34,7 @@ Following table shows the basic statistics of ConvSearch dataset, where *\# tota
 | Average agent queries per dialogue             |  6.01  |
 | Average agent queries with clicks per dialogue |  3.68  |
 | Average words per agent query                  | 10.37  |
-| Average agent landing pages per dialogue       |  8.78  |
+| Average landing pages per dialogue             |  8.78  |
 
 For a more detailed statistical analysis report of our ConvSearch dataset, you can view [*Dataset_Statistical_Analysis.pdf*](https://github.com/chuzhumin98/ConvSearch-Dataset/blob/main/Dataset_Statistical_Analysis.pdf).
 
@@ -42,37 +42,37 @@ For a more detailed statistical analysis report of our ConvSearch dataset, you c
 
 ## Dialogs.json Format
 
-**Dialogs.json** is provided as json format with an array of dialogues. For each dialogue, following show its segments as well as their corresponding descriptions.
+**Dialogs.json** is provided as json format with an array of dialogues. For each dialogue, following shows its segments as well as their corresponding descriptions.
 
 - id: the dialogue id
 - user: the id of the dialogue-participated user
 - agent: the id of the dialogue-participated agent
-- start_time: the timestamp of the dialogue start timestamp
-- end_time: the timestamp of the dialogue end timestamp
+- start_time: the timestamp of the dialogue start time
+- end_time: the timestamp of the dialogue end time
 - topic_user: the user-annotated dialogue topic
 - effort_user: the user-annotated dialogue-level effort
-- preference_user: the user's preference between conversational search and traditional query-SERP search with the information need of this dialogue
-- applicability_user: the degree to which the user apply the information or suggestions provided by the agent after dialogue
+- preference_user: the user-annotated preference between conversational search and traditional query-SERP search for the information need of the dialogue
+- applicability_user: the degree to which the user thinks the information provided by the agent is applicable
 - improvement_user: the user's improvement suggestions towards agent responses
 - understand_agent: the degree to which the agent understand user’s information need of the whole dialogue from the agent perspective
 - satisfaction_agent: the degree of agent-perceived user’s satisfaction towards agent responses of the entire conversation
 - difficulty_agent: the difficulty for the agent to meet user’s information need in the whole dialogue
-- keywords: the user provided keywords of the dialogue before the dialogue starts
-- turns: an array containing the information of each turn, sorted with the turn timestamp
+- keywords: the words or phrase provided by the user before the dialogue starts
+- turns: an array containing the information of each turn, sorted by the timestamp
   - id: the turn id
-  - content: the content of the turn (image type turn is empty string)
-  - initiator: the role that initiates this turn of dialogue (user or agent)
+  - content: the content of the turn (image-type turn is empty string)
+  - initiator: the role that initiates this turn of dialogue, either user or agent 
   - time: the timestamp when this turn is generated
-  - is_image: whether this turn is in image type
-  - image_name: the image file name if this turn is in image type
-  - satisfaction-turn: the degree to which the user feel satisfied with the agent response in the current turn (only for agent-initiated turn)
-  - understand-turn: the degree to which the user feels that the agent has understood his or her search intent  (only for agent-initiated turn)
-  - action-primary-class: the primary labels (an array of labels for each assessor) for agent action annotation (only for agent-initiated turn)
-  - action-secondary-class: the secondary labels (an array of labels for each assessor) for agent action annotation (only for agent-initiated turn)
-  - clarity-turn: the degree of clarity in expression of user information need in the current turn (only for user-initiated turn)
-  - difficulty-turn: the difficulty of satisfying user’s information need in the current turn (only for user-initiated turn)
-  - intent-primary-class: the primary labels (an array of labels for each assessor) for user intent annotation (only for user-initiated turn)
-  - intent-secondary-class: the secondary labels (an array of labels for each assessor) for user intent annotation (only for user-initiated turn)
+  - is_image: whether this turn is in image-type, boolean value
+  - image_name: the image file name if this turn is in image-type
+  - satisfaction-turn: the degree of which the user feels satisfied with the response in the agent-initiated turn
+  - understand-turn: the degree of which the user thinks that his or her search intent is understood by the agent in the agent-initiated turn
+  - action-primary-class: an array containing three lables, each responding to the primary type of agent action annotated by one external assessor in agent-initiated turn
+  - action-secondary-class: an array containing three lables, each responding to the secondary type of agent action annotated by one external assessor in agent-initiated turn
+  - clarity-turn: the clarity that agent thinks of the user's expression of his or her information need in the user-initiated turn
+  - difficulty-turn: the difficulty that the agent thinks satisfying the user’s information need in the user-initiated turns
+  - intent-primary-class: an array containing three lables, each responding to the primary type of  user intent annotated by one external assessor in user-initiated turn
+  - intent-secondary-class: an array containing three lables, each responding to the secondary type of  user intent annotated by one external assessor in user-initiated turn
 
 
 
@@ -130,15 +130,15 @@ As a Chinese conversational search dataset, we have stored the conversational co
 
 ## SearchBehaviors.json Format
 
-**SearchBehaviors.json** is provided as json format with an array of query requests. For each query request, following show its segments as well as their corresponding descriptions.
+**SearchBehaviors.json** is provided as json format with an array of query requests. For each query request, following shows its segments as well as their corresponding descriptions.
 
 - id: the query request id
 - query_string: the query content agent submits to the search engine
-- origin: the agent-selected Chinese search engine or knowledge acquisition platform (one of baidu, sogou, bing, zhihu and douban)
+- source: the agent-selected Chinese search engine or knowledge acquisition platform (one of baidu, sogou, bing, zhihu and douban)
 - time: the timestamp when the query request is generated
 - belong_dialog: the id for the associated dialogue
 - belong_turn: the id for the associated dialogue turn
-- serp_pagelogs: an array containing the information of each agent-browsed Search Engine Result Page (SERP), sorted with the start timestamp
+- serp_pagelogs: an array containing the information of each agent-browsed Search Engine Result Page (SERP), sorted by the start timestamp
   - id: the SERP log id
   - url: the URL of this SERP
   - html_name: the stored SERP HTML filename
@@ -150,9 +150,9 @@ As a Chinese conversational search dataset, we have stored the conversational co
     - href: the clicked result URL
     - type: the clicked result type (content: general landing page, tab: the link of navigator tab)
     - id: the rank of this clicked result (sorted with the display order)
-- landingpage_pagelogs: an array containing the information of each agent-browsed landing pages, sorted with the start timestamp
+- landingpage_pagelogs: an array containing the information of each agent-browsed landing pages, sorted by the start timestamp
   - id: the landing page log id
-  - helpfulness-pagelog: the degree to which this webpage is helpful in generating agent response
+  - helpfulness-pagelog: the degree of which the agent thinks that this webpage is helpful in generating response
   - url: the URL of this landing page
   - html_name: the stored landing page HTML filename
   - start_time: the timestamp when agent opens this landing page
@@ -169,7 +169,7 @@ Following show the sample content of SearchBehaviors.json:
 [{
   "id": 43, 
   "query_string": "\u6c5f\u6d59\u83dc\u9986 \u5317\u4eac", 
-  "origin": "baidu", 
+  "source": "baidu", 
   "time": 1635059303.845, 
   "belong_dialog": 30, 
   "belong_turn": 85, 
